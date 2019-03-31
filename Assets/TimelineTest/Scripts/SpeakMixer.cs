@@ -9,25 +9,28 @@ namespace CleverCrow.TimelineTest {
 
             var dialogue = "";
             var speaker = "";
+            var alpha = 1f;
 
             var count = playable.GetInputCount();
             for (var i = 0; i < count; i++) {
                 var input = playable.GetInput(i);
-                var data = ((ScriptPlayable<SpeakDataPlayable>)input).GetBehaviour();
+                var weight = playable.GetInputWeight(i);
+
+                if (!input.IsValid() || input.GetPlayState() != PlayState.Playing || weight < 0.5) continue;
                 
-                if (!input.IsValid() || input.GetPlayState() != PlayState.Playing) continue;
+                var data = ((ScriptPlayable<SpeakDataPlayable>)input).GetBehaviour();
                 if (data == null) continue;
 
                 dialogue = data.dialogue;
                 speaker = data.speaker;
+                alpha = 2 * (Mathf.Max(0.5f, weight) - 0.5f);
             }
 
-            dialogueCtrl.Speak(dialogue, speaker);
+            dialogueCtrl.Speak(dialogue, speaker, alpha);
         }
 
         public override void OnGraphStop (Playable playable) {
             base.OnGraphStop(playable);
-            Debug.Log("stop");
         }
     }
 }

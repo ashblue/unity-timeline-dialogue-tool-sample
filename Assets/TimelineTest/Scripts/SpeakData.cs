@@ -17,6 +17,6 @@ namespace CleverCrow.TimelineTest {
             return ScriptPlayable<SpeakDataPlayable>.Create(graph, speakData);
         }
 
-        public ClipCaps clipCaps => ClipCaps.None;
+        public ClipCaps clipCaps => ClipCaps.Blending;
     }
 }
