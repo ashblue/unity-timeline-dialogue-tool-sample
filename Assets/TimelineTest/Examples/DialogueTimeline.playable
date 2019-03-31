@@ -77,7 +77,7 @@ MonoBehaviour:
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114458254297615272}
     m_EaseInDuration: 0
-    m_EaseOutDuration: 1
+    m_EaseOutDuration: 0
     m_BlendInDuration: 1.0333333333333332
     m_BlendOutDuration: -1
     m_MixInCurve:
@@ -145,7 +145,7 @@ MonoBehaviour:
     m_Duration: 3.5166666666666666
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114458254297615272}
-    m_EaseInDuration: 0.5
+    m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: 1.0333333333333332
@@ -318,8 +318,8 @@ MonoBehaviour:
     m_Duration: 5
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114935468325698386}
-    m_EaseInDuration: 0.5
-    m_EaseOutDuration: 0.5
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:

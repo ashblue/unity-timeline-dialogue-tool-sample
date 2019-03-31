@@ -3,12 +3,14 @@ using UnityEngine.Playables;
 
 namespace CleverCrow.TimelineTest {
     public class SpeakMixer : PlayableBehaviour {
+        private DialogueController _dialogueCtrl;
+        
         public override void ProcessFrame (Playable playable, FrameData info, object playerData) {
-            var dialogueCtrl = playerData as DialogueController;
-            if (dialogueCtrl == null) return;
+            _dialogueCtrl = playerData as DialogueController;
+            if (_dialogueCtrl == null) return;
 
-            var dialogue = "";
-            var speaker = "";
+            string dialogue = null;
+            string speaker = null;
             var alpha = 1f;
 
             var count = playable.GetInputCount();
@@ -26,11 +28,17 @@ namespace CleverCrow.TimelineTest {
                 alpha = 2 * (Mathf.Max(0.5f, weight) - 0.5f);
             }
 
-            dialogueCtrl.Speak(dialogue, speaker, alpha);
+            if (Application.isPlaying && dialogue == null) {
+                _dialogueCtrl.Hide();
+                return;
+            }
+            
+            _dialogueCtrl.Speak(dialogue, speaker, alpha);
         }
 
         public override void OnGraphStop (Playable playable) {
-            base.OnGraphStop(playable);
+            if (_dialogueCtrl == null) return;
+            _dialogueCtrl.Hide();
         }
     }
 }
