@@ -6,6 +6,7 @@ namespace CleverCrow.TimelineTest {
     [System.Serializable]
     public class SpeakDataPlayable : PlayableBehaviour {
         public string speaker = "Untitled";
+        [TextArea]
         public string dialogue = "Dialogue goes here";
     }
     
