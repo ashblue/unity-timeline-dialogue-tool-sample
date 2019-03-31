@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 337831424, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
-  m_Name: SingleDialogueTimeline
+  m_Name: DynamicPlaybackDialogueTimeline
   m_EditorClassIdentifier: 
   m_NextId: 0
   m_Tracks:
@@ -33,8 +33,8 @@ MonoBehaviour:
   m_Name: SpeakData
   m_EditorClassIdentifier: 
   speakData:
-    speaker: Character B
-    dialogue: I'm a new character talking in this box.
+    speaker: Dialogue
+    dialogue: I can be played from anywhere.
 --- !u!114 &114458254297615272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,16 +54,16 @@ MonoBehaviour:
   m_Parent: {fileID: 11400000}
   m_Children: []
   m_Clips:
-  - m_Start: 2.4833333333333334
+  - m_Start: 3.95
     m_ClipIn: 0
     m_Asset: {fileID: 114481801374938520}
-    m_Duration: 3.9166666666666674
+    m_Duration: 5.783333333333334
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114458254297615272}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 1.0333333333333332
-    m_BlendOutDuration: -1
+    m_BlendInDuration: 0.7833333333333332
+    m_BlendOutDuration: 0.7000000000000011
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -126,13 +126,13 @@ MonoBehaviour:
   - m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 114969342315809834}
-    m_Duration: 3.5166666666666666
+    m_Duration: 4.733333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114458254297615272}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 1.0333333333333332
+    m_BlendOutDuration: 0.7833333333333332
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -192,15 +192,15 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: SpeakData
     m_Version: 1
-  - m_Start: 7.566666666666666
+  - m_Start: 9.033333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 114250409174848436}
-    m_Duration: 2.883333333333333
+    m_Duration: 4.65
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114458254297615272}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: -1
+    m_BlendInDuration: 0.7000000000000011
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -275,8 +275,8 @@ MonoBehaviour:
   m_Name: SpeakData
   m_EditorClassIdentifier: 
   speakData:
-    speaker: Character A
-    dialogue: I'm a single dialogue box.
+    speaker: Dialogue
+    dialogue: As long as the structure of the track assignments is the same.
 --- !u!114 &114969342315809834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,5 +290,5 @@ MonoBehaviour:
   m_Name: SpeakData
   m_EditorClassIdentifier: 
   speakData:
-    speaker: Character A
-    dialogue: Hello!
+    speaker: Dialogue
+    dialogue: I'm a dynamically injected dialogue box played from a timelin asset.
