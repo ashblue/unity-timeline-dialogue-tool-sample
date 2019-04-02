@@ -1,6 +1,6 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CleverCrow.TimelineTest {
     public class DialogueController : MonoBehaviour {
@@ -9,8 +9,8 @@ namespace CleverCrow.TimelineTest {
         private DisplayState _state;
 
         public CanvasGroup canvasGroup;
-        public TextMeshProUGUI speakerOutput;
-        public TextMeshProUGUI lineOutput;
+        public Text speakerOutput;
+        public Text lineOutput;
 
         private enum DisplayState {
             Hiding,
@@ -32,12 +32,16 @@ namespace CleverCrow.TimelineTest {
 
         public void Speak (string line, string speaker, float alpha) {
             Show();
-            
-            lineOutput.alpha = alpha;
-            lineOutput.SetText(line);
 
-            speakerOutput.alpha = alpha;
-            speakerOutput.SetText(speaker);
+            var lineColor = lineOutput.color;
+            lineColor.a = alpha;
+            lineOutput.color = lineColor;
+            lineOutput.text = line;
+
+            var speakerColor = speakerOutput.color;
+            speakerColor.a = alpha;
+            speakerOutput.color = speakerColor;
+            speakerOutput.text = speaker;
         }
 
         public void Hide () {
